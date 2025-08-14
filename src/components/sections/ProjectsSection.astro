@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import project from "../../assets/images/projects/project-professorInspirador2025.png"
+---
+
+<section transition:name="projects-section" id="projects">
+    <div class="container px-4 py-6 mx-auto">
+        <h2 
+          class="text-neutral-950 text-3xl font-bold font-title mb-2"
+          data-animate="fade-right"
+          data-delay="100"
+        >
+            Projects
+        </h2>
+        <p 
+          class="text-neutral-700 font-base"
+          data-animate="fade-right"
+          data-delay="200"
+        >
+            Here some of my recent and better projects
+        </p>
+        <div class="mt-8 flex flex-row gap-6">
+            <article 
+              class="cursor-pointer bg-neutral-50 max-w-[14rem] h-84 rounded-3xl relative overflow-y-hidden px-4 py-2 flex flex-col justify-end border-1 border-neutral-100"
+              data-animate="zoom-in"
+              data-delay="300"
+            >
+                <Image 
+                    src={project} 
+                    alt="Projeto professor inspirador 2025" 
+                    class="absolute w-fit inset-0 h-fit" 
+                />
+                <h3 class="text-lg leading-tight text-neutral-50 font-bold z-10">
+                   Professor Inspirador 2025
+                </h3>
+                <p></p>
+            </article>
+            <article 
+              class="cursor-pointer bg-neutral-50 max-w-[12rem] h-84 rounded-3xl relative overflow-y-hidden px-4 py-2 flex flex-col justify-end"
+              data-animate="zoom-in"
+              data-delay="500"
+            >
+                <Image 
+                    src={project} 
+                    alt="Projeto professor inspirador 2025" 
+                    class="absolute w-fit inset-0 h-fit" 
+                />
+                <h3 class="text-lg leading-tight text-neutral-50 font-bold z-10">
+                   Professor Inspirador 2025
+                </h3>
+                <p></p>
+            </article>
+        </div>
+    </div>
+</section>

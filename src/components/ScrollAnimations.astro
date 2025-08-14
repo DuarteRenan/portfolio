@@ -1,0 +1,267 @@
+---
+---
+<script>
+  // Sistema de animações baseado em Intersection Observer
+  class ScrollAnimations {
+    constructor() {
+      this.observer = null;
+      this.init();
+    }
+
+    init() {
+      // Criar o observer
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.animateElement(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      // Observar todos os elementos com data-animate
+      this.observeElements();
+    }
+
+    observeElements() {
+      const elements = document.querySelectorAll('[data-animate]');
+      elements.forEach(el => {
+        // Adicionar classe inicial
+        el.classList.add('animate-hidden');
+        this.observer.observe(el);
+      });
+    }
+
+    animateElement(element) {
+      const animationType = element.dataset.animate;
+      const delay = element.dataset.delay || '0';
+      const duration = element.dataset.duration || '600';
+
+      // Aplicar delay
+      setTimeout(() => {
+        element.classList.remove('animate-hidden');
+        element.classList.add('animate-visible', `animate-${animationType}`);
+      }, parseInt(delay));
+
+      // Parar de observar após animar
+      this.observer.unobserve(element);
+    }
+  }
+
+  // Inicializar quando o DOM estiver pronto
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      new ScrollAnimations();
+    });
+  } else {
+    new ScrollAnimations();
+  }
+
+  // Reinicializar após navegação com View Transitions
+  document.addEventListener('astro:after-swap', () => {
+    new ScrollAnimations();
+  });
+</script>
+
+<style>
+  /* Estados base das animações */
+  .animate-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .animate-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Animações de Fade */
+  .animate-fade-up {
+    animation: fadeUp var(--duration, 0.6s) ease-out forwards;
+  }
+
+  .animate-fade-down {
+    animation: fadeDown var(--duration, 0.6s) ease-out forwards;
+  }
+
+  .animate-fade-left {
+    animation: fadeLeft var(--duration, 0.6s) ease-out forwards;
+  }
+
+  .animate-fade-right {
+    animation: fadeRight var(--duration, 0.6s) ease-out forwards;
+  }
+
+  .animate-fade {
+    animation: fade var(--duration, 0.6s) ease-out forwards;
+  }
+
+  /* Animações de Zoom */
+  .animate-zoom-in {
+    animation: zoomIn var(--duration, 0.6s) ease-out forwards;
+  }
+
+  .animate-zoom-out {
+    animation: zoomOut var(--duration, 0.6s) ease-out forwards;
+  }
+
+  /* Animações de Flip */
+  .animate-flip-left {
+    animation: flipLeft var(--duration, 0.6s) ease-out forwards;
+  }
+
+  .animate-flip-right {
+    animation: flipRight var(--duration, 0.6s) ease-out forwards;
+  }
+
+  /* Keyframes */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes zoomOut {
+    from {
+      opacity: 0;
+      transform: scale(1.2);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes flipLeft {
+    from {
+      opacity: 0;
+      transform: rotateY(-90deg);
+    }
+    to {
+      opacity: 1;
+      transform: rotateY(0);
+    }
+  }
+
+  @keyframes flipRight {
+    from {
+      opacity: 0;
+      transform: rotateY(90deg);
+    }
+    to {
+      opacity: 1;
+      transform: rotateY(0);
+    }
+  }
+
+  /* Estados iniciais para cada animação */
+  [data-animate="fade-up"].animate-hidden {
+    transform: translateY(30px);
+  }
+
+  [data-animate="fade-down"].animate-hidden {
+    transform: translateY(-30px);
+  }
+
+  [data-animate="fade-left"].animate-hidden {
+    transform: translateX(-30px);
+  }
+
+  [data-animate="fade-right"].animate-hidden {
+    transform: translateX(30px);
+  }
+
+  [data-animate="zoom-in"].animate-hidden {
+    transform: scale(0.8);
+  }
+
+  [data-animate="zoom-out"].animate-hidden {
+    transform: scale(1.2);
+  }
+
+  [data-animate="flip-left"].animate-hidden {
+    transform: rotateY(-90deg);
+  }
+
+  [data-animate="flip-right"].animate-hidden {
+    transform: rotateY(90deg);
+  }
+
+  /* Reduzir movimento para usuários com preferências de acessibilidade */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-fade-down,
+    .animate-fade-left,
+    .animate-fade-right,
+    .animate-zoom-in,
+    .animate-zoom-out,
+    .animate-flip-left,
+    .animate-flip-right {
+      animation: fade 0.3s ease-out forwards;
+    }
+
+    [data-animate].animate-hidden {
+      transform: none;
+    }
+  }
+</style>
