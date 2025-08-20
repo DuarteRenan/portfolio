@@ -1,55 +1,72 @@
 ---
 import { Image } from "astro:assets";
-import project from "../../assets/images/projects/project-professorInspirador2025.png"
 ---
 
-<section transition:name="projects-section" id="projects">
-    <div class="container px-4 py-6 mx-auto">
-        <h2 
-          class="text-neutral-950 text-3xl font-bold font-title mb-2"
-          data-animate="fade-right"
-          data-delay="100"
-        >
-            Projects
-        </h2>
-        <p 
-          class="text-neutral-700 font-base"
-          data-animate="fade-right"
-          data-delay="200"
-        >
-            Here some of my recent and better projects
-        </p>
-        <div class="mt-8 flex flex-row gap-6">
-            <article 
-              class="cursor-pointer bg-neutral-50 max-w-[14rem] h-84 rounded-3xl relative overflow-y-hidden px-4 py-2 flex flex-col justify-end border-1 border-neutral-100"
-              data-animate="zoom-in"
-              data-delay="300"
-            >
-                <Image 
-                    src={project} 
-                    alt="Projeto professor inspirador 2025" 
-                    class="absolute w-fit inset-0 h-fit" 
-                />
-                <h3 class="text-lg leading-tight text-neutral-50 font-bold z-10">
-                   Professor Inspirador 2025
-                </h3>
-                <p></p>
-            </article>
-            <article 
-              class="cursor-pointer bg-neutral-50 max-w-[12rem] h-84 rounded-3xl relative overflow-y-hidden px-4 py-2 flex flex-col justify-end"
-              data-animate="zoom-in"
-              data-delay="500"
-            >
-                <Image 
-                    src={project} 
-                    alt="Projeto professor inspirador 2025" 
-                    class="absolute w-fit inset-0 h-fit" 
-                />
-                <h3 class="text-lg leading-tight text-neutral-50 font-bold z-10">
-                   Professor Inspirador 2025
-                </h3>
-                <p></p>
-            </article>
+ <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-title font-bold text-4xl md:text-6xl mb-4">
+                    Projects
+                </h2>
+                <p class=" text-xl text-gray-300 max-w-2xl mx-auto">
+                    A selection of my most recent and significant works
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card glass-effect rounded-2xl p-6">
+                    <div class="w-full h-48 bg-gray-800 rounded-lg mb-6 flex items-center justify-center">
+                        <span class="text-gray-400">Preview do Projeto</span>
+                    </div>
+                    <h3 class="font-title font-semibold text-2xl mb-3">Nome do Projeto</h3>
+                    <p class="font-inter text-gray-300 mb-4">
+                        Descrição breve do projeto, tecnologias utilizadas e principais funcionalidades.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full text-sm font-inter">React</span>
+                        <span class="px-3 py-1 bg-green-600/20 text-green-300 rounded-full text-sm font-inter">Node.js</span>
+                        <span class="px-3 py-1 bg-purple-600/20 text-purple-300 rounded-full text-sm font-inter">TypeScript</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors font-inter">Ver Projeto</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors font-inter">GitHub</a>
+                    </div>
+                </div>
+                <!-- Repeat for more projects -->
+                <div class="project-card glass-effect rounded-2xl p-6">
+                    <div class="w-full h-48 bg-gray-800 rounded-lg mb-6 flex items-center justify-center">
+                        <span class="text-gray-400">Preview do Projeto</span>
+                    </div>
+                    <h3 class="font-title font-semibold text-2xl mb-3">Outro Projeto</h3>
+                    <p class="font-inter text-gray-300 mb-4">
+                        Descrição breve do projeto, tecnologias utilizadas e principais funcionalidades.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-yellow-600/20 text-yellow-300 rounded-full text-sm font-inter">JavaScript</span>
+                        <span class="px-3 py-1 bg-red-600/20 text-red-300 rounded-full text-sm font-inter">Vue.js</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors font-inter">Ver Projeto</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors font-inter">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-card glass-effect rounded-2xl p-6">
+                    <div class="w-full h-48 bg-gray-800 rounded-lg mb-6 flex items-center justify-center">
+                        <span class="text-gray-400">Preview do Projeto</span>
+                    </div>
+                    <h3 class="font-title font-semibold text-2xl mb-3">Mais um Projeto</h3>
+                    <p class="font-inter text-gray-300 mb-4">
+                        Descrição breve do projeto, tecnologias utilizadas e principais funcionalidades.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-indigo-600/20 text-indigo-300 rounded-full text-sm font-inter">Next.js</span>
+                        <span class="px-3 py-1 bg-pink-600/20 text-pink-300 rounded-full text-sm font-inter">Tailwind</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors font-inter">Ver Projeto</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors font-inter">GitHub</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>

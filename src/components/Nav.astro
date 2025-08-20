@@ -2,45 +2,97 @@
 
 ---
 
-<nav role="menubar" data-nav class="w-full fixed z-100 bg-neutral-50/32 text-neutral-950 px-6 py-4 lg:py-0 backdrop-blur-xl"
+<nav class="fixed top-0 w-full z-50 backdrop-blur-lg bg-neutral-50/6 border-1 border-neutral-50/10"
 >
-  <h2 id="menuLabel" class="sr-only">Navegação Principal</h2>
-  <div class="container mx-auto w-full flex flex-row justify-between  lg:items-center">
-    <div class="w-fit leading-tight">
-      Renan<br>Duarte
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <div class="flex-1">
+        <a href="#hero">
+          <span
+            class="font-bold text-sm font-title bg-white text-black rounded-full py-1 px-1.5"
+          >
+            <i class="ri-code-s-slash-fill"></i>
+          </span>
+        </a>
+      </div>
+
+      <!-- Nav links -->
+    <div data-menu-links aria-expanded="false" id="menuLinks" class="bg-black absolute min-h-dvh w-full inset-0  -translate-y-full opacity-0 aria-expanded:opacity-100 aria-expanded:translate-y-0 transition-all duration-500">
+        <ul class="ml-10 flex flex-col text-4xl gap-y-8 items-baseline space-x-8 overflow-hidden text-neutral-400 [&_li]:hover:text-neutral-50 [&_li]:transition-colors">
+          <li>
+            <a href="#hero" class="nav-item font-inter font-medium"> Home </a>
+          </li>
+          <li>
+            <a href="#projects" class="nav-item font-inter font-medium">
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="#skills" class="nav-item font-inter font-medium">
+              Skills
+            </a>
+          </li>
+          <li>
+            <a href="#career" class="nav-item font-inter font-medium">
+              Career
+            </a>
+          </li>
+          <li>
+            <a href="#about" class="nav-item font-inter font-medium"> About </a>
+          </li>
+          <li>
+            <a href="#contact" class="nav-item font-inter font-medium">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        id="menuButton"
+        aria-label="Open headline navbar menu"
+        aria-controls="menu-content"
+        aria-expanded="false"
+        data-menu-toggle
+        class="w-10 h-full block relative cursor-pointer md:hidden"
+      >
+        <span aria-expanded="false" class="bg-white w-4 h-[2px] block rounded-full absolute
+           top-5/12 right-0
+           transition-transform"
+        >
+      </span>
+        <span aria-expanded="false" class="bg-white w-4 h-[2px] block rounded-full absolute
+           top-7/12 right-0
+           transition-transform"
+        >
+      </span>
+      </button>
     </div>
-
-    <button id="menuButton" aria-label="Abrir menu principal" aria-controls="menu-content" aria-expanded="false" data-menu-toggle class="cursor-pointer flex flex-col w-[20px] relative [&_span]:absolute [&_span]:block [&_span]:w-full [&_span]:h-[.16rem] [&_span]:bg-white [&_span]:transition-all [&_span]:rounded-xl lg:hidden"
-    >
-      <span aria-expanded="false" class="top-3.5 aria-expanded:rotate-45 aria-expanded:top-5"></span>
-      <span aria-expanded="false" class="top-6 aria-expanded:-rotate-45 aria-expanded:top-5"></span>
-    </button>
-
-    <ul aria-label="Navigation" id="menuContent" aria-expanded="false" class="text-neutral-950 absolute w-full h-auto [&_li]:p-4  [&_li]:cursor-pointer -z-10 transition-transform top-[var(--nav-height)] translate-x-[200%] aria-expanded:translate-x-1/2 block duration-300 lg:relative lg:translate-0 lg:flex lg:flex-row lg:w-fit lg:gap-x-4 lg:z-0 lg:top-0 md:transition-none">
-      <li role="none" class="">Home</li>
-      <li role="none" class=""><a role="menuitem" href="#projects">Projects</a></li>
-      <li role="none" class="">About</li>
-      <li role="none" class="">Get in touch</li>
-    </ul>
   </div>
 </nav>
 
 <script is:inline>
-  const nav = document.querySelector("[data-nav]");
-  const menuButton = document.querySelector("[data-menu-toggle]");
-  const bars = menuButton.querySelectorAll("span");
-  const menuContent = document.getElementById("menuContent");
-
-  document.documentElement.style.setProperty('--nav-height', `${nav.offsetHeight}px`);
- 
-  menuButton.addEventListener("click", () => {
-    const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
-    const elements = [menuButton, menuContent, ...bars];
+  const nav = document.querySelector('nav');
+  const menuLinks = document.getElementById('menuLinks');
+  const menuButton = document.querySelector("button");
   
-    elements.forEach(el => {
-        el.setAttribute("aria-expanded", !isExpanded);
-    });
+  // function changeMenuState(elemento) {
+  //   if (elemento.setAttribute('true')) {
+  //     elemento.setAttribute('false');
+  //   }
+  // 
+  // }
 
-});
-
+  function clickMenu(elemento) {
+    elemento.addEventListener('click', () =>{
+      const isExpanded = elemento.getAttribute('aria-expanded') === 'true';
+      elemento.setAttribute('aria-expanded', String(!isExpanded));
+    })
+  }
+  
+  clickMenu(menuButton);
 </script>
+
+<!-- quando clicar, alterar o estado do menu de aria-expandad para true -->

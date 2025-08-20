@@ -1,20 +1,17 @@
 ---
-import Image from "astro/components/Image.astro";
-import bg from "../assets/images/bg2.svg";
+import "../styles/global.css";
+import "remixicon/fonts/remixicon.css"
 import SEO from "../components/SEO.astro";
 import Nav from "../components/Nav.astro";
-import ScrollAnimations from "../components/ScrollAnimations.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
-  <SEO title="Renan Duarte" description="Font-end Developer" image="../assets/RenanDuarte.jpg" />
-  <body class="bg-neutral-50 relative font-base">
-    <Image src={bg} alt="Background image" class="absolute w-full mx-auto -z-1 h-dvh"/>
+  <SEO title="Renan Duarte | Font-end Developer" description="Font-end Developer" image="../assets/RenanDuarte.jpg" />
+  <body class="bg-black text-white font-base antialiased">
     <Nav />
          <main>
            <slot />
          </main>
-     <ScrollAnimations />
   </body>
 </html>
