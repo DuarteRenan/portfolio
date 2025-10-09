@@ -1,72 +1,89 @@
 ---
 import { Image } from "astro:assets";
+import professor from '../../assets/images/projects/project-professorInspirador2025.webp'
+import peslevelup from '../../assets/images/projects/peslevelup.png'
+import bimverse from '../../assets/images/projects/bimverse.webp'
 ---
 
- <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="font-title font-bold text-4xl md:text-6xl mb-4">
-                    Projects
+ <section data-aos="fade-up" id="projects" class="py-0 px-4 sm:px-6 lg:px-8  bg-transparent">
+        <div class="max-w-7xl mx-auto bg-gray-300/8  backdrop-blur-xl pb-6 ring-1 ring-white/4 px-4 md:px-8 rounded-4xl">
+            <div class="text-center py-16 md:py-24">
+                <h2 class="text-4xl text-white font-semibold font-title">
+                   Creative Solutions
                 </h2>
-                <p class=" text-xl text-gray-300 max-w-2xl mx-auto">
-                    A selection of my most recent and significant works
+                <p class="mt-4 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+                   I develop landing pages and email marketing designs with a focus on performance and modern aesthetics.
                 </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1 -->
-                <div class="project-card glass-effect rounded-2xl p-6">
-                    <div class="w-full h-48 bg-gray-800 rounded-lg mb-6 flex items-center justify-center">
-                        <span class="text-gray-400">Preview do Projeto</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-4">
+                <div class="rounded-2xl bg-gray-900/56 p-5 ring ring-gray-700/24 group  transform ease-in-out transition hover:scale-101">
+                    <div class="w-full h-48 rounded-xl mb-4 flex items-center justify-center overflow-hidden relative">
+                        <Image src={bimverse} alt="landing page for a BIM entreprise" class="absolute group-hover:scale-104 transition-all object-cover h-full w-full" />
                     </div>
-                    <h3 class="font-title font-semibold text-2xl mb-3">Nome do Projeto</h3>
-                    <p class="font-inter text-gray-300 mb-4">
-                        Descrição breve do projeto, tecnologias utilizadas e principais funcionalidades.
+                    <h4 class="text-xs text-gray-500 font-semibold font-title mb-1">Landing Page</h4>
+                    <h3 class="font-title font-semibold text-2xl mb-3 text-white">BIMVerse</h3>
+                    <p class="font-inter text-gray-400 mb-4">
+Landing page for BIMVERSE, a 3D BIM modeling company. Crafted with Tailwind, Vite, and JavaScript, featuring a dynamic dark mode.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full text-sm font-inter">React</span>
-                        <span class="px-3 py-1 bg-green-600/20 text-green-300 rounded-full text-sm font-inter">Node.js</span>
-                        <span class="px-3 py-1 bg-purple-600/20 text-purple-300 rounded-full text-sm font-inter">TypeScript</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Tailwind</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Vite</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Javascript</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">HTML</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">CSS</span>
                     </div>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors font-inter">Ver Projeto</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors font-inter">GitHub</a>
+                    <div class="flex space-x-2">
+                        <a href="https://bimverse.com.br/" target="_blank" class="px-6 py-2 rounded-full bg-indigo-600 text-white transition-colors font-title hover:bg-indigo-700">Live preview</a>
+                        <!-- <a href="#" class="px-6 py-2 rounded-full bg-gray-700 text-white transition-colors font-title hover:bg-gray-600">GitHub</a> -->
                     </div>
                 </div>
-                <!-- Repeat for more projects -->
-                <div class="project-card glass-effect rounded-2xl p-6">
-                    <div class="w-full h-48 bg-gray-800 rounded-lg mb-6 flex items-center justify-center">
-                        <span class="text-gray-400">Preview do Projeto</span>
+
+                 <div class="rounded-2xl bg-gray-900/56 p-5 ring ring-gray-700/24 group  transform ease-in-out transition hover:scale-101">
+                    <div class="w-full h-48 rounded-xl mb-4 flex items-center justify-center overflow-hidden relative ">
+                        <Image src={professor} alt="professor" class="absolute top-0 group-hover:scale-104 transition-all object-cover h-full w-full" />
                     </div>
-                    <h3 class="font-title font-semibold text-2xl mb-3">Outro Projeto</h3>
-                    <p class="font-inter text-gray-300 mb-4">
-                        Descrição breve do projeto, tecnologias utilizadas e principais funcionalidades.
+                    <h4 class="text-xs text-gray-500 font-semibold font-title mb-1">Landing Page</h4>
+                    <h3 class="font-title font-semibold text-2xl mb-3 text-white">Professor Inspirador</h3>
+                    <p class="font-inter text-gray-400 mb-4">
+                      Website for the Inspiring Teacher contest. Designed to guide and inspire participants with a responsive and interactive user experience.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-yellow-600/20 text-yellow-300 rounded-full text-sm font-inter">JavaScript</span>
-                        <span class="px-3 py-1 bg-red-600/20 text-red-300 rounded-full text-sm font-inter">Vue.js</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Tailwind</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Astro</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Javascript</span>
+                         <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">HTML</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">CSS</span>
                     </div>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors font-inter">Ver Projeto</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors font-inter">GitHub</a>
+                    <div class="flex space-x-2">
+                        <a href="https://professorinspirador2025.com.br/" target="_blank" class="px-6 py-2 rounded-full bg-indigo-600 text-white transition-colors font-title hover:bg-indigo-700">Live preview</a>
+                        <!-- <a href="#" class="px-6 py-2 rounded-full bg-gray-700 text-white transition-colors font-title hover:bg-gray-600">GitHub</a> -->
                     </div>
                 </div>
-                <div class="project-card glass-effect rounded-2xl p-6">
-                    <div class="w-full h-48 bg-gray-800 rounded-lg mb-6 flex items-center justify-center">
-                        <span class="text-gray-400">Preview do Projeto</span>
+
+                 <!-- Project Card 1 -->
+                <div class="rounded-2xl bg-gray-900/56 p-5 ring ring-gray-700/24 group  transform ease-in-out transition hover:scale-101">
+                    <div class="w-full h-48 rounded-xl mb-4 flex items-center justify-center overflow-hidden relative">
+                        <Image src={peslevelup} alt="PES Level Up image preview renan duarte front-end developer" class="absolute group-hover:scale-104 transition-all object-cover h-full w-full" />
                     </div>
-                    <h3 class="font-title font-semibold text-2xl mb-3">Mais um Projeto</h3>
-                    <p class="font-inter text-gray-300 mb-4">
-                        Descrição breve do projeto, tecnologias utilizadas e principais funcionalidades.
+                    <h4 class="text-xs text-gray-500 font-semibold font-title mb-1">Landing Page</h4>
+                    <h3 class="font-title font-semibold text-2xl mb-3 text-white">PES Level Up</h3>
+                    <p class="font-inter text-gray-400 mb-4">
+                       A landing page on an AI-powered digital platform that applies, corrects, and generates detailed reports on English language learning performance.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-indigo-600/20 text-indigo-300 rounded-full text-sm font-inter">Next.js</span>
-                        <span class="px-3 py-1 bg-pink-600/20 text-pink-300 rounded-full text-sm font-inter">Tailwind</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Tailwind</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Astro</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Javascript</span>
+                         <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">HTML</span>
+                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">CSS</span>
                     </div>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors font-inter">Ver Projeto</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors font-inter">GitHub</a>
+                    <div class="flex space-x-2">
+                        <a href="#" class="px-6 py-2 rounded-full bg-indigo-600 text-white transition-colors font-title hover:bg-indigo-700">Live preview</a>
+                        <!-- <a href="#" class="px-6 py-2 rounded-full bg-gray-700 text-white transition-colors font-title hover:bg-gray-600">GitHub</a> -->
                     </div>
                 </div>
+                
+
             </div>
         </div>
     </section>

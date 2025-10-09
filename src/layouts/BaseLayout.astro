@@ -8,10 +8,17 @@ import Nav from "../components/Nav.astro";
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
   <SEO title="Renan Duarte | Font-end Developer" description="Font-end Developer" image="../assets/RenanDuarte.jpg" />
-  <body class="bg-black text-white font-base antialiased">
+   <script src="/scripts/aos.js" defer is:inline></script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({ once: true, offset: 50 });
+      });
+    </script>
+  <body class="bg-black">
     <Nav />
-         <main>
+         <main class="relative">
            <slot />
          </main>
   </body>
+  
 </html>

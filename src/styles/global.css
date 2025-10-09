@@ -1,27 +1,19 @@
 @import "tailwindcss";
+@import 'aos/dist/aos.css'; 
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap');
 
 @theme {
     --font-title: "Manrope", sans-serif;
     --font-base: "Inter", sans-serif;
-}
+  }
+
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: var(--nav-height);
 }
 
 .container {
     @apply px-[3%] mx-auto  2xl:px-[6%];
 }
 
-.holographic-gradient {
-background: radial-gradient(circle at 50% 50%, 
-                rgba(59, 130, 246, 0.8) 0%, 
-                rgba(16, 185, 129, 0.6) 25%, 
-                rgba(6, 78, 59, 0.4) 50%, 
-                rgba(0, 0, 0, 0.2) 75%, 
-                transparent 100%);
-            filter: blur(80px);
-} 

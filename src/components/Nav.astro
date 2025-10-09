@@ -2,40 +2,63 @@
 
 ---
 
-<nav class="fixed top-0 w-full z-50 backdrop-blur-lg bg-neutral-50/6 border-1 border-neutral-50/10"
->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
+<nav class="fixed top-0 md:w-fit left-0 right-0  z-50 backdrop-blur-lg bg-neutral-100/24 dark:bg-neutral-50/6 border-b-1 border-neutral-100/32 dark:border-neutral-50/10 border-t-0 border-x-0 mt-2 rounded-2xl mx-4 md:mx-auto">
+  <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8 lg:py-4">
+    <div class="flex items-center justify-between">
       <!-- Logo -->
-      <div class="flex-1">
+      <div class="flex-1 md:flex-none outline-0 focus:caret-sky-300">
         <a href="#hero">
-          <span
-            class="font-bold text-sm font-title bg-white text-black rounded-full py-1 px-1.5"
-          >
-            <i class="ri-code-s-slash-fill"></i>
+          <span class="">
+            <i class="ri-code-s-slash-fill font-regular text-sm font-title bg-white text-black rounded-full p-1.5 mr-1"></i>
           </span>
+            <span class="text-white text-xl font-title">duarte</span>
         </a>
       </div>
 
-      <!-- Nav links -->
-    <div data-menu-links aria-expanded="false" id="menuLinks" class="bg-black absolute min-h-dvh w-full inset-0  -translate-y-full opacity-0 aria-expanded:opacity-100 aria-expanded:translate-y-0 transition-all duration-500">
-        <ul class="ml-10 flex flex-col text-4xl gap-y-8 items-baseline space-x-8 overflow-hidden text-neutral-400 [&_li]:hover:text-neutral-50 [&_li]:transition-colors">
+      <!-- Nav Mobile -->
+      <div class="md:hidden">
+         <div id="menuLinks" aria-expanded="false" class="bg-black absolute min-h-dvh w-full inset-0 -translate-y-full transition-all aria-expanded:translate-y-0 aria-expanded:transition-all duration-500 opacity-0 aria-expanded:opacity-100 rounded-t-xl ">
+          <ul class="ml-10 flex flex-col text-4xl gap-y-8 items-baseline space-x-8 overflow-hidden text-neutral-400 [&_li]:hover:text-neutral-50 [&_li]:font-normal [&_li]:transition-all">
+            <li>
+              <a href="#hero"> Home </a>
+            </li>
+            <li>
+              <a href="#projects">
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="#about"> About </a>
+            </li>
+            <li>
+              <a href="#contact">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+          <!-- Mobile menu button -->
+        <button aria-expanded="false" role="button" id="menuButton" aria-label="Open headline navbar menu" aria-controls="menu-content" class="w-10 h-8 block relative cursor-pointer md:hidden group ">
+          <span class="bg-white w-4 h-[2px] block rounded-full absolute top-5/12 right-0 transition-all duration-400 group-aria-expanded:rotate-45 group-aria-expanded:top-1/2"
+          >
+          </span>
+          <span class="bg-white w-4 h-[2px] block rounded-full absolute top-7/12 right-0 transition-all duration-400 group-aria-expanded:-rotate-45 group-aria-expanded:top-1/2"
+          >
+          </span>
+        </button>
+      </div>
+
+      <!-- Nav Desktop -->
+      <div class="hidden transform-none md:visible relative bg-transparent min-h-fit transition-none top-0 md:flex justify-end">
+        <ul
+          class="ml-10 flex flex-col text-4xl gap-y-8 items-baseline space-x-8 overflow-hidden dark:text-neutral-300 [&_li]:hover:text-neutral-500 dark:[&_li]:hover:text-neutral-50 [&_li]:transition-colors md:flex-row md:text-sm md:font-light font-title  md:bg-transparent"
+        >
           <li>
             <a href="#hero" class="nav-item font-inter font-medium"> Home </a>
           </li>
           <li>
             <a href="#projects" class="nav-item font-inter font-medium">
               Projects
-            </a>
-          </li>
-          <li>
-            <a href="#skills" class="nav-item font-inter font-medium">
-              Skills
-            </a>
-          </li>
-          <li>
-            <a href="#career" class="nav-item font-inter font-medium">
-              Career
             </a>
           </li>
           <li>
@@ -49,50 +72,66 @@
         </ul>
       </div>
 
-      <!-- Mobile menu button -->
-      <button
-        id="menuButton"
-        aria-label="Open headline navbar menu"
-        aria-controls="menu-content"
-        aria-expanded="false"
-        data-menu-toggle
-        class="w-10 h-full block relative cursor-pointer md:hidden"
-      >
-        <span aria-expanded="false" class="bg-white w-4 h-[2px] block rounded-full absolute
-           top-5/12 right-0
-           transition-transform"
-        >
-      </span>
-        <span aria-expanded="false" class="bg-white w-4 h-[2px] block rounded-full absolute
-           top-7/12 right-0
-           transition-transform"
-        >
-      </span>
-      </button>
+    
     </div>
   </div>
 </nav>
 
 <script is:inline>
-  const nav = document.querySelector('nav');
-  const menuLinks = document.getElementById('menuLinks');
-  const menuButton = document.querySelector("button");
-  
-  // function changeMenuState(elemento) {
-  //   if (elemento.setAttribute('true')) {
-  //     elemento.setAttribute('false');
-  //   }
-  // 
-  // }
+  class NavMenu {
+    constructor(menu) {
+      this.menu = document.querySelector(menu);
+      this.botao = this.menu.querySelector('#menuButton')
+      this.menuLinks = this.menu.querySelector('#menuLinks');
+      this.menuList = this.menu.querySelector('ul');
+      this.menuHeight = this.menu.offsetHeight;
+      this.menuMT = parseInt(window.getComputedStyle(this.menu).marginTop, 10)
+      document.documentElement.style.scrollPaddingTop = `${this.menuHeight + this.menuMT}px`;
+      this.isOpen = false;
+    
+      this.button();
+      this.windowResize();
+      this.handleClick();
+    }
 
-  function clickMenu(elemento) {
-    elemento.addEventListener('click', () =>{
-      const isExpanded = elemento.getAttribute('aria-expanded') === 'true';
-      elemento.setAttribute('aria-expanded', String(!isExpanded));
-    })
+    toggleNavState() {
+    
+      this.isOpen = !this.isOpen;
+      this.menuLinks.setAttribute('aria-expanded', this.isOpen);
+      this.botao.setAttribute('aria-expanded', this.isOpen);
+      this.isOpen ? this.menuList.style.paddingTop = `${this.menuHeight}px` : this.menuList.style.paddingTop = `0`;
+    }
+
+     windowResize() {
+        window.addEventListener('resize', () => {
+            const mdBreakPoint = window.matchMedia("(width <= 768px)");
+            
+            if (mdBreakPoint.matches && this.isOpen) {
+                this.toggleNavState();    
+            }
+            
+            if (!mdBreakPoint.matches) {
+                this.menuLinks.removeAttribute('aria-expanded');
+            }
+        });
+    }
+
+    button() {
+      this.botao.addEventListener("click", ()=> {
+         this.toggleNavState()
+      });
+    }
+
+  handleClick() {
+    this.menuLinks.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI' || e.target.tagName === 'A') {
+     this.toggleNavState();
+    }
+  });
+}
+
   }
-  
-  clickMenu(menuButton);
-</script>
 
-<!-- quando clicar, alterar o estado do menu de aria-expandad para true -->
+    const navmenu = new NavMenu('nav');
+
+</script>
