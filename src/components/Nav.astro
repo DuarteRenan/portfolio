@@ -2,12 +2,17 @@
 
 ---
 
-<nav class="fixed top-0 md:w-fit left-0 right-0  z-50 backdrop-blur-lg bg-neutral-100/24 dark:bg-neutral-50/6 border-b-1 border-neutral-100/32 dark:border-neutral-50/10 border-t-0 border-x-0 mt-2 rounded-2xl mx-4 md:mx-auto">
+<!-- Skip to main content link for accessibility -->
+<a href="#hero" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-sky-700 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-medium">
+  Skip to main content
+</a>
+
+<nav class="fixed top-0 md:w-fit left-0 right-0  z-50 backdrop-blur-lg bg-neutral-100/24 dark:bg-neutral-50/6 border-b-1 border-neutral-100/32 dark:border-neutral-50/10 border-t-0 border-x-0 mt-2 rounded-2xl mx-1 md:mx-auto">
   <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8 lg:py-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
       <div class="flex-1 md:flex-none outline-0 focus:caret-sky-300">
-        <a href="#hero">
+        <a href="/" class="focus:outline-2 focus:outline-sky-400 focus:outline-offset-2 rounded-sm">
           <span class="">
             <i class="ri-code-s-slash-fill font-regular text-sm font-title bg-white text-black rounded-full p-1.5 mr-1"></i>
           </span>
@@ -38,11 +43,11 @@
           </ul>
         </div>
           <!-- Mobile menu button -->
-        <button aria-expanded="false" role="button" id="menuButton" aria-label="Open headline navbar menu" aria-controls="menu-content" class="w-10 h-8 block relative cursor-pointer md:hidden group ">
-          <span class="bg-white w-4 h-[2px] block rounded-full absolute top-5/12 right-0 transition-all duration-400 group-aria-expanded:rotate-45 group-aria-expanded:top-1/2"
+        <button aria-expanded="false" role="button" id="menuButton" aria-label="Toggle navigation menu" aria-controls="menuLinks" class="w-10 h-8 block relative cursor-pointer md:hidden group focus:outline-2 focus:outline-sky-400 focus:outline-offset-2 rounded-sm">
+          <span class="bg-white w-4 h-0.5 block rounded-full absolute top-5/12 right-0 transition-all duration-400 group-aria-expanded:rotate-45 group-aria-expanded:top-1/2"
           >
           </span>
-          <span class="bg-white w-4 h-[2px] block rounded-full absolute top-7/12 right-0 transition-all duration-400 group-aria-expanded:-rotate-45 group-aria-expanded:top-1/2"
+          <span class="bg-white w-4 h-0.5 block rounded-full absolute top-7/12 right-0 transition-all duration-400 group-aria-expanded:-rotate-45 group-aria-expanded:top-1/2"
           >
           </span>
         </button>
@@ -54,18 +59,18 @@
           class="ml-10 flex flex-col text-4xl gap-y-8 items-baseline space-x-8 overflow-hidden dark:text-neutral-300 [&_li]:hover:text-neutral-500 dark:[&_li]:hover:text-neutral-50 [&_li]:transition-colors md:flex-row md:text-sm md:font-light font-title  md:bg-transparent"
         >
           <li>
-            <a href="#hero" class="nav-item font-inter font-medium"> Home </a>
+            <a href="#hero" class="nav-item font-inter font-medium focus:outline-2 focus:outline-sky-400 focus:outline-offset-4 rounded-sm"> Home </a>
           </li>
           <li>
-            <a href="#projects" class="nav-item font-inter font-medium">
+            <a href="#projects" class="nav-item font-inter font-medium focus:outline-2 focus:outline-sky-400 focus:outline-offset-4 rounded-sm">
               Projects
             </a>
           </li>
           <li>
-            <a href="#about" class="nav-item font-inter font-medium"> About </a>
+            <a href="#about" class="nav-item font-inter font-medium focus:outline-2 focus:outline-sky-400 focus:outline-offset-4 rounded-sm"> About </a>
           </li>
           <li>
-            <a href="#contact" class="nav-item font-inter font-medium">
+            <a href="#contact" class="nav-item font-inter font-medium focus:outline-2 focus:outline-sky-400 focus:outline-offset-4 rounded-sm">
               Contact
             </a>
           </li>

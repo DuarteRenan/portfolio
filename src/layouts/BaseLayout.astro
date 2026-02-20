@@ -14,11 +14,11 @@ import Nav from "../components/Nav.astro";
         AOS.init({ once: true, offset: 50 });
       });
     </script>
-  <body class="bg-black">
+  <body class="bg-[#16171b] bg-[url('/grain-texture.avif')] bg-repeat bg-[size:200px_200px]">
     <Nav />
          <main class="relative">
            <slot />
          </main>
   </body>
-  
+
 </html>

@@ -1,89 +1,95 @@
 ---
-import { Image } from "astro:assets";
-import professor from '../../assets/images/projects/project-professorInspirador2025.webp'
-import peslevelup from '../../assets/images/projects/peslevelup.png'
-import bimverse from '../../assets/images/projects/bimverse.webp'
+import ProjectCard from '../ProjectCard.astro';
+import professor from '../../assets/images/projects/professor.webp'
+import peslevelup from '../../assets/images/projects/peslevelup.webp'
+import nave from '../../assets/images/projects/nave.webp'
+
+const projects = [
+  {
+    title: "Navegando IA",
+    category: "Website",
+    description: "A website for the company NAVE A VELA, with a guide of essential guidelines on the use of AI in schools.",
+    image: nave,
+    imageAlt: "A website for the company NAVE A VELA, with a guide of essential guidelines on the use of AI in schools.",
+    technologies: ["Astro","Tailwind", "JavaScript", "HTML", "CSS"],
+    liveUrl: "https://navegandoia.com.br/",
+    codeUrl: 'https://github.com/DuarteRenan/portfolio',
+    featured: true,
+    hueValue: '150'
+  },
+  {
+    title: "Professor Inspirador",
+    category: "Landing Page",
+    description: "Website for the Inspiring Teacher contest. Designed to guide and inspire participants with a responsive and interactive user experience.",
+    image: professor,
+    imageAlt: "Professor Inspirador contest website landing page",
+    technologies: ["Tailwind", "Astro", "JavaScript", "HTML", "CSS"],
+    liveUrl: "https://professorinspirador2025.com.br/",
+    codeUrl: 'https://github.com/DuarteRenan/portfolio',
+    featured: true,
+    hueValue: '200'
+  },
+  {
+    title: "PES Level Up",
+    category: "Landing Page",
+    description: "AI-powered digital platform that applies, corrects, and generates detailed reports on English language learning performance.",
+    image: peslevelup,
+    imageAlt: "PES Level Up AI-powered English learning platform by Renan Duarte",
+    technologies: ["Tailwind", "Astro", "JavaScript", "HTML", "CSS"],
+    liveUrl: "https://peslevelup.com.br/",
+    codeUrl: 'https://github.com/DuarteRenan/portfolio',
+    featured: true,
+    hueValue: '174'
+  }
+];
 ---
 
- <section data-aos="fade-up" id="projects" class="py-0 px-4 sm:px-6 lg:px-8  bg-transparent">
-        <div class="max-w-7xl mx-auto bg-gray-300/8  backdrop-blur-xl pb-6 ring-1 ring-white/4 px-4 md:px-8 rounded-4xl">
-            <div class="text-center py-16 md:py-24">
-                <h2 class="text-4xl text-white font-semibold font-title">
-                   Creative Solutions
-                </h2>
-                <p class="mt-4 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-                   I develop landing pages and email marketing designs with a focus on performance and modern aesthetics.
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-4">
-                <div class="rounded-2xl bg-gray-900/56 p-5 ring ring-gray-700/24 group  transform ease-in-out transition hover:scale-101">
-                    <div class="w-full h-48 rounded-xl mb-4 flex items-center justify-center overflow-hidden relative">
-                        <Image src={bimverse} alt="landing page for a BIM entreprise" class="absolute group-hover:scale-104 transition-all object-cover h-full w-full" />
-                    </div>
-                    <h4 class="text-xs text-gray-500 font-semibold font-title mb-1">Landing Page</h4>
-                    <h3 class="font-title font-semibold text-2xl mb-3 text-white">BIMVerse</h3>
-                    <p class="font-inter text-gray-400 mb-4">
-Landing page for BIMVERSE, a 3D BIM modeling company. Crafted with Tailwind, Vite, and JavaScript, featuring a dynamic dark mode.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Tailwind</span>
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Vite</span>
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Javascript</span>
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">HTML</span>
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">CSS</span>
-                    </div>
-                    <div class="flex space-x-2">
-                        <a href="https://bimverse.com.br/" target="_blank" class="px-6 py-2 rounded-full bg-indigo-600 text-white transition-colors font-title hover:bg-indigo-700">Live preview</a>
-                        <!-- <a href="#" class="px-6 py-2 rounded-full bg-gray-700 text-white transition-colors font-title hover:bg-gray-600">GitHub</a> -->
-                    </div>
-                </div>
+<section data-aos="fade-up" id="projects" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+  <div class="relative max-w-6xl mx-auto">
+    <!-- Section Header -->
+    <div class="mb-20 md:mb-28">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl text-white font-bold font-title mb-6 leading-tight">
+        Creative Solutions
+      </h2>
+      <p class="text-base md:text-lg text-gray-400 max-w-3xl">
+        I develop landing pages and email marketing designs with a focus on performance and modern aesthetics.
+      </p>
+    </div>
 
-                 <div class="rounded-2xl bg-gray-900/56 p-5 ring ring-gray-700/24 group  transform ease-in-out transition hover:scale-101">
-                    <div class="w-full h-48 rounded-xl mb-4 flex items-center justify-center overflow-hidden relative ">
-                        <Image src={professor} alt="professor" class="absolute top-0 group-hover:scale-104 transition-all object-cover h-full w-full" />
-                    </div>
-                    <h4 class="text-xs text-gray-500 font-semibold font-title mb-1">Landing Page</h4>
-                    <h3 class="font-title font-semibold text-2xl mb-3 text-white">Professor Inspirador</h3>
-                    <p class="font-inter text-gray-400 mb-4">
-                      Website for the Inspiring Teacher contest. Designed to guide and inspire participants with a responsive and interactive user experience.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Tailwind</span>
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Astro</span>
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Javascript</span>
-                         <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">HTML</span>
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">CSS</span>
-                    </div>
-                    <div class="flex space-x-2">
-                        <a href="https://professorinspirador2025.com.br/" target="_blank" class="px-6 py-2 rounded-full bg-indigo-600 text-white transition-colors font-title hover:bg-indigo-700">Live preview</a>
-                        <!-- <a href="#" class="px-6 py-2 rounded-full bg-gray-700 text-white transition-colors font-title hover:bg-gray-600">GitHub</a> -->
-                    </div>
-                </div>
+    <!-- Projects Stack -->
+    <div class="space-y-20 md:space-y-32">
+      {projects.map((project, index) => (
+        <ProjectCard 
+          title={project.title}
+          category={project.category}
+          description={project.description}
+          image={project.image}
+          imageAlt={project.imageAlt}
+          technologies={project.technologies}
+          liveUrl={project.liveUrl}
+          codeUrl={project.codeUrl}
+          isOdd={index % 2 === 1}
+          hueValue={project.hueValue}
+        />
+      ))}
+    </div>
 
-                 <!-- Project Card 1 -->
-                <div class="rounded-2xl bg-gray-900/56 p-5 ring ring-gray-700/24 group  transform ease-in-out transition hover:scale-101">
-                    <div class="w-full h-48 rounded-xl mb-4 flex items-center justify-center overflow-hidden relative">
-                        <Image src={peslevelup} alt="PES Level Up image preview renan duarte front-end developer" class="absolute group-hover:scale-104 transition-all object-cover h-full w-full" />
-                    </div>
-                    <h4 class="text-xs text-gray-500 font-semibold font-title mb-1">Landing Page</h4>
-                    <h3 class="font-title font-semibold text-2xl mb-3 text-white">PES Level Up</h3>
-                    <p class="font-inter text-gray-400 mb-4">
-                       A landing page on an AI-powered digital platform that applies, corrects, and generates detailed reports on English language learning performance.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Tailwind</span>
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Astro</span>
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">Javascript</span>
-                         <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">HTML</span>
-                        <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-title hover:-translate-y-[1px]  transition-transform">CSS</span>
-                    </div>
-                    <div class="flex space-x-2">
-                        <a href="#" class="px-6 py-2 rounded-full bg-indigo-600 text-white transition-colors font-title hover:bg-indigo-700">Live preview</a>
-                        <!-- <a href="#" class="px-6 py-2 rounded-full bg-gray-700 text-white transition-colors font-title hover:bg-gray-600">GitHub</a> -->
-                    </div>
-                </div>
-                
-
-            </div>
-        </div>
-    </section>
+    <!-- Call to Action Section -->
+    <div class="mt-24 md:mt-32 pt-24 md:pt-32 border-t border-white/10 text-center">
+      <p class="text-lg text-gray-400 mb-8">
+        Want to see more of my work?
+      </p>
+      <a 
+        href="https://github.com/DuarteRenan?tab=repositories" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-sky-600 text-white font-semibold transition-all font-title hover:bg-sky-500 hover:shadow-lg hover:shadow-sky-500/20 focus:outline-2 focus:outline-sky-400 focus:outline-offset-2 group/cta"
+      >
+        <span>View All Repositories</span>
+        <svg class="w-5 h-5 group-hover/cta:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
